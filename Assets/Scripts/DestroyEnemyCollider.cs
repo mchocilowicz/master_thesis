@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DestroyEnemyCollider : MonoBehaviour {
 
-    void OnCollisionEnter(Collision col)
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colliding with: " + col.gameObject.name);
+        
     }
 
     // Update is called once per frame
