@@ -12,14 +12,18 @@ public class ViveControllerInputTest : MonoBehaviour {
         get { return SteamVR_Controller.Input((int)trackedObj.index);}
     }
 
-
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+    }
+
+    // Update is called once per frame
+    void Update () {
         // 1
         if (Controller.GetAxis() != Vector2.zero)
         {
