@@ -17,10 +17,8 @@ public class ViveControllerInputTest : MonoBehaviour {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-    }
+
+    
 
     // Update is called once per frame
     void Update () {

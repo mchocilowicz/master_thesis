@@ -6,6 +6,12 @@ public class DestroyEnemyCollider : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.name == "Sphere")
+        {
+            Debug.Log("Destory");
+            Destroy(other.gameObject);
+        }
         
     }
 
