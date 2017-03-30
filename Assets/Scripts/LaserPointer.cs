@@ -61,13 +61,14 @@ public class LaserPointer : MonoBehaviour {
         teleportMarkerTransform = marker.transform;
     }
 	
-	// Update is called once per frame
+
 	void Update () {
-        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
+
+        if (Controller.GetHairTriggerDown())
         {
             RaycastHit hit;
 
-            if( Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100, teleportMask))
+            if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100, teleportMask))
             {
                 hitPoint = hit.point;
                 ShowLaser(hit);
@@ -76,15 +77,17 @@ public class LaserPointer : MonoBehaviour {
                 shouldTeleport = true;
             }
         }
-        else
+
+       else
         {
             laser.SetActive(false);
             marker.SetActive(false);
         }
 
-        if(Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldTeleport)
+        if (Controller.GetHairTriggerUp() && shouldTeleport)
         {
             Teleport();
         }
+
 	}
 }
