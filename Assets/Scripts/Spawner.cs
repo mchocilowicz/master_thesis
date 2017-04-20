@@ -7,18 +7,24 @@ public class Spawner : MonoBehaviour {
     public int numberOfEnemies;
     public float spawnRadius;
     public GameObject objectToSpawn;
-    private Vector3 spawnPosition;
+	public Transform player;
+	public float maxDistance;
+	private Vector3 spawnPosition;
+	private bool spawned = false;
 
-	// Use this for initialization
-	void Start () {
-        SpawnObject();
-    }
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+		if (!spawned) {
+			if (calculateDistance () < maxDistance) {
+				SpawnObject()
+			}
+		}
 	}
-
+	
+	float calculateDistance(){
+		return Vector3.Distance (transform.position, player.position);
+	}
+		
     void SpawnObject ()
     {
         for(int i = 0; i < numberOfEnemies; i++)
@@ -26,6 +32,7 @@ public class Spawner : MonoBehaviour {
             spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
             Vector3 adjustedtPosition = new Vector3(spawnPosition.x, 0, spawnPosition.z);
             Instantiate(objectToSpawn, adjustedtPosition, Quaternion.identity);
-        }    
+        }  
+		spawned = true;
     }
 }
