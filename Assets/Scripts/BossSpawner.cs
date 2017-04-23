@@ -12,7 +12,7 @@ public class BossSpawner : MonoBehaviour {
 	public float maxDistance;
 	private Vector3 spawnPosition;
 	private bool spawned = false;
-	private var timer;
+	private float timer;
 
 
 	void Update () {

@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 		if (!spawned) {
 			if (calculateDistance () < maxDistance) {
-				SpawnObject()
+				SpawnObject ();
 			}
 		}
 	}

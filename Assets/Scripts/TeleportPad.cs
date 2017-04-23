@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class TeleportPad : MonoBehaviour {
 
-    public Vector3 teleportTo;
+	public Transform destination;
     public Transform cameraRig;
 
-	IEnumerator OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
     {
-		if (other.gameObject.name == "Player") {
-			Fade fade = GameObject.FindGameObjectWithTag ("Fade").GetComponent<Fade> ();
-			yield return StartCoroutine (fade.FadeToBlack ());
-			cameraRig.position = teleportTo;
-			yield return StartCoroutine(fade.FadeToClear());
+		Debug.Log (other.gameObject.name);
+		if(other.gameObject.name == "Player") {
+			GameObject.Find("FadeGM").GetComponent<Fading>(). BeginFade(-1);
+			cameraRig.position = destination.position;
 		}
+
+
     }
 
 }
