@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public Image healthBar;
 	public Text healthText;
 	public Text score;
-	public float PlayerScore = 0;
+	private float PlayerScore = 0;
 	private float HealthPoints = 200;
 	private float maxHealthPoints = 200;
 
@@ -20,11 +20,6 @@ public class PlayerController : MonoBehaviour {
 			TakeDamage (20);
 			IncreaseScore (5);
 		}
-	}
-
-	// Use this for initialization
-	void Start () {
-		
 	}
 	
 	// Update is called once per frame
