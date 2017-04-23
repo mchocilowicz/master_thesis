@@ -8,13 +8,17 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 50.0f;
 	public Image healthBar;
 	public Text healthText;
+	public Text score;
+	public float PlayerScore = 0;
 	private float HealthPoints = 200;
 	private float maxHealthPoints = 200;
+
 
 	void OnTriggerEnter(Collider other){
 		Debug.Log (other.gameObject.name);
 		if (other.gameObject.name == "Teleporter") {
 			TakeDamage (20);
+			IncreaseScore (5);
 		}
 	}
 
@@ -50,5 +54,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("DEAD");
 		}
 		UpdateHealth ();
+	}
+
+	void IncreaseScore(float points){
+		PlayerScore += points;
+		score.text = PlayerScore.ToString ();
 	}
 }
