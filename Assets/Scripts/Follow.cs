@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour {
 
-	public Transform target;
+	public GameObject target;
 	public float speed;
 
 	// Update is called once per frame
 	void Update () {
-		transform.LookAt (target);
+		transform.LookAt (target.transform);
 		transform.Translate (Vector3.forward * speed * Time.deltaTime);
 	}
 }

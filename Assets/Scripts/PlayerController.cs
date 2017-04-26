@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private float PlayerScore = 0;
 	private float HealthPoints = 200;
 	private float maxHealthPoints = 200;
-
+	public GameObject tornado;
 
 	void OnTriggerEnter(Collider other){
 		Debug.Log (other.gameObject.name);
@@ -25,6 +25,16 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Walk ();
+		lookAtTornado ();
+
+	}
+
+	void lookAtTornado(){
+		var tornado = GameObject.Find ("BigTornado(Clone)");
+		if (tornado != null) {
+			transform.LookAt (tornado.transform);
+			transform.Translate (new Vector3(1,1,1) * 3 * Time.deltaTime);
+		}
 	}
 
 	void Walk(){
