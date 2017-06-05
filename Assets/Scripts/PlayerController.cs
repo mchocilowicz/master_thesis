@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
 	public GameObject tornado;
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log (other.gameObject.name);
 		if (other.gameObject.name == "Teleporter") {
 			TakeDamage (20);
 			IncreaseScore (5);
